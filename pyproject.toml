@@ -7,7 +7,7 @@ name = "slicerheart_patch_flattening"
 version = "0.1.0"
 description = "Patch/baffle flattening algorithms and evaluation harness for SlicerHeart virtual surgical planning"
 requires-python = ">=3.10"
-dependencies = ["numpy", "scipy", "vtk", "matplotlib", "pandas", "shapely", "pygeodesic"]
+dependencies = ["numpy", "scipy", "vtk", "matplotlib", "pandas", "shapely", "pygeodesic", "tabulate"]
 
 [project.optional-dependencies]
 ref = ["libigl"]      # reference implementations used only in tests / cross-checks

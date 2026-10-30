@@ -1,0 +1,51 @@
+name: benchmark
+
+# Full benchmark (30 shapes x all methods, darts, refinement sensitivity, templates).
+# Runs on demand and on every published release; on a release the report PDF and the
+# result CSVs are attached as release assets.
+
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[ref,dev,physics]"
+      - name: Run full benchmark
+        run: python scripts/run_benchmark.py --out output/benchmark --no-templates
+      - name: Package results
+        run: |
+          cd output/benchmark
+          cp report.pdf "benchmark_report_${GITHUB_REF_NAME}.pdf"
+          cp report.md  "benchmark_report_${GITHUB_REF_NAME}.md"
+          zip -qr "benchmark_results_${GITHUB_REF_NAME}.zip" eval/*.csv eval/figures synthetic_library/manifest.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: benchmark-${{ github.ref_name }}
+          path: |
+            output/benchmark/benchmark_report_*.pdf
+            output/benchmark/benchmark_report_*.md
+            output/benchmark/benchmark_results_*.zip
+      - name: Attach to release
+        if: github.event_name == 'release'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release upload "${GITHUB_REF_NAME}" \
+            output/benchmark/benchmark_report_*.pdf \
+            output/benchmark/benchmark_report_*.md \
+            output/benchmark/benchmark_results_*.zip --clobber

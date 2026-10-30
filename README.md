@@ -68,6 +68,20 @@ python scripts/build_library.py output/synthetic_library
 python -m slicerheart_patch_flattening.evaluate --library output/synthetic_library --out output/eval
 ```
 
+## Tests, CI and the benchmark report
+
+* `python -m pytest tests` runs 31 tests (solver correctness on analytic controls, libigl
+  cross-checks, darting, Baffle Planner API round-trip, Warp membrane vs numpy, adjoint gradient
+  check, export formats, dataset generator, report generation). GitHub Actions runs them on every
+  pull request and push to `main` (`.github/workflows/tests.yml`, Python 3.10 and 3.12) and adds a
+  quick 6-shape benchmark report as a workflow artifact.
+* `python scripts/run_benchmark.py --out output/benchmark` rebuilds the library, runs every
+  method and writes `report.md` / `report.pdf` with the same "Results of the benchmark" tables as
+  below (plus per-family tables, uncertainty, darting and the figures). `--quick` is the CI smoke
+  run. The `benchmark` workflow runs the full benchmark on demand and on every published release,
+  and attaches `benchmark_report_<tag>.pdf`, the Markdown and a zip of the CSVs and figures to the
+  release.
+
 ## Layout
 
 ```
@@ -89,7 +103,9 @@ slicerheart_patch_flattening/
   export.py          SVG / DXF / PDF templates at 1:1 mm, suture-bite offset
   slicer_api.py      flatten_polydata(): the Baffle Planner-shaped interface (no Slicer dependency)
   clinical.py        loader for real cases placed in clinical_baffles/
-  viz.py, evaluate.py
+  viz.py, evaluate.py, report.py (benchmark tables -> Markdown + PDF)
+scripts/             build_library.py, run_benchmark.py
+.github/workflows/   tests.yml (PR / push), benchmark.yml (on demand and on release)
 clinical_baffles/    placeholder for real baffles (see its README)
 tests/               pytest (controls, libigl cross-check, darting, API)
 results/             benchmark CSVs from the committed run (results_long, summary_by_family, uncertainty, darts)

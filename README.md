@@ -4,6 +4,8 @@ Flattening of 3D surgical patch and baffle surfaces into 2D cut templates, with 
 darting and template export, for [SlicerHeart](https://github.com/SlicerHeart/SlicerHeart)
 virtual surgical planning (DORV baffles, Mustard/Senning baffles, PAPVR baffles, vascular patches).
 
+<img width="789" height="732" alt="Screenshot 2026-10-30 at 7 29 29 PM" src="https://github.com/user-attachments/assets/1f077f12-2875-4f0d-8c6b-1ba0a5267b12" />
+
 Three approaches live in one package:
 
 | folder | approach | status |

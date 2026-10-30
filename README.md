@@ -23,7 +23,7 @@ Study results are in [`reports/`](reports/); the summary comparing the three is
 - Darting: curvature-driven dart/gusset proposal, mesh slit, re-flatten
 - Developabilization: nearest developable baffle with the suture line fixed
 - Template export at 1:1 mm as SVG, DXF (laser cutter) and PDF, with suture-bite offset
-- Synthetic library of 30 pediatric baffle shapes and a random generator for larger sets
+- Synthetic library of 30 pediatric baffle shapes, a random generator, and dataset v1 (100 k samples with ARAP/LSCM labels and physics-labelled shards, published as release assets; `scripts/generate_dataset.py`)
 - `slicer_api.flatten_polydata()`: the Baffle Planner interface (open `vtkPolyData` in, flattened `vtkPolyData` with stretch arrays out)
 - Benchmark script with Markdown/PDF report; tests run on every pull request
 
@@ -94,6 +94,7 @@ python scripts/generate_dataset.py --out output/dataset --shard 0 --n 10000 --wo
 - [02 Geometric methods, wider exploration, darting, developabilization](reports/02_geometric_methods_wider_exploration.md)
 - [03 Physics track: Warp membrane, pressurised forward model, adjoint inverse](reports/03_physics_ml_warp_membrane_and_inverse.md)
 - [04 Neural surrogate feasibility](reports/04_neural_surrogate_feasibility.md)
+- [05 Training on dataset v1 and roadmap to the inverse surrogate](reports/05_roadmap_inverse_surrogate.md)
 - [05 Roadmap for the inverse surrogate](reports/05_inverse_surrogate_roadmap.md)
 - Dataset v1 record format and provenance: [neural/DATASET.md](slicerheart_patch_flattening/neural/DATASET.md); training notes: [neural/TRAINING.md](slicerheart_patch_flattening/neural/TRAINING.md)
 

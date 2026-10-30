@@ -24,10 +24,13 @@ import numpy as np
 from .data import featurize, M_SURFACE
 
 
-def _read_npz(data: bytes | str) -> dict:
+def _read_npz(data: bytes | str, name: str = "") -> dict:
     z = np.load(io.BytesIO(data) if isinstance(data, bytes) else data, allow_pickle=False)
     rec = {k: z[k] for k in z.files if k != "meta"}
     rec.update(json.loads(str(z["meta"])))
+    if "id" not in rec:                      # older files: id from the file name
+        stem = os.path.splitext(os.path.basename(name or str(data)))[0]
+        rec["id"] = int(stem.split("_")[-1])
     return rec
 
 
@@ -39,12 +42,12 @@ def load_shards(paths: list[str], limit: int | None = None) -> list[dict]:
             with zipfile.ZipFile(p) as zf:
                 names = sorted(n for n in zf.namelist() if n.endswith(".npz"))
                 for n in names:
-                    recs.append(_read_npz(zf.read(n)))
+                    recs.append(_read_npz(zf.read(n), n))
                     if limit and len(recs) >= limit:
                         return recs
         else:
             for f in sorted(glob.glob(os.path.join(p, "**", "sample_*.npz"), recursive=True)):
-                recs.append(_read_npz(f))
+                recs.append(_read_npz(f, f))
                 if limit and len(recs) >= limit:
                     return recs
     return recs

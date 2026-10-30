@@ -83,3 +83,16 @@ def test_generate_dataset_script(tmp_path):
     subprocess.run([sys.executable, script, "--out", str(tmp_path), "--shard", "1", "--n", "4", "--workers", "2"], check=True, timeout=600)
     man = json.load(open(tmp_path / "shard_01" / "manifest.json"))
     assert man["n"] == 4 and sorted(r["id"] for r in man["index"]) == [4, 5, 6, 7]
+
+
+def test_dataset_slice_and_loader():
+    import os
+    from slicerheart_patch_flattening.neural.dataset_io import load_shards, BaffleDataset, split_of
+    here = os.path.join(os.path.dirname(__file__), "..", "slicerheart_patch_flattening", "neural", "data", "sample_100")
+    recs = load_shards([here], limit=20)
+    assert len(recs) == 20 and {"arap_uv", "lscm_uv", "vertex_stretch_s1", "metrics", "id"} <= set(recs[0])
+    assert split_of(0) == split_of(0) and {split_of(i) for i in range(200)} == {"train", "val", "test"}
+    pytest.importorskip("torch")
+    ds = BaffleDataset(recs)
+    b, s, r, sc = ds[0]
+    assert tuple(b.shape) == (128, 3) and tuple(s.shape) == (256, 6) and tuple(r.shape) == (128, 2)

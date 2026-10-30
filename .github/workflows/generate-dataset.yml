@@ -1,9 +1,8 @@
 name: generate-dataset
 
-# Generates the synthetic baffle dataset (neural/DATASET.md) on GitHub runners:
-#   geometry shards: n_shards x n_per_shard samples with ARAP/LSCM labels (~1 h per 10k on a 4-core runner)
-#   physics shards:  n_physics samples with inflated states at 2 pressures x 2 materials (~7 s/sample/core)
-# and attaches the shard zips to the release named in `release_tag` (created if missing).
+# Generates dataset v1 (see neural/DATASET.md): geometry shards of n_per_shard samples each and
+# physics-labelled shards, as GitHub Actions jobs in parallel, and attaches the zips to the
+# release named by `release_tag` (created if missing). Each shard is reproducible from its seed.
 
 on:
   workflow_dispatch:
@@ -14,12 +13,12 @@ on:
       n_per_shard:
         description: "samples per geometry shard"
         default: "10000"
-      n_physics:
-        description: "samples per physics shard (0 to skip)"
-        default: "2500"
-      n_physics_shards:
-        description: "number of physics shards"
+      physics_shards:
+        description: "number of physics-labelled shards"
         default: "2"
+      physics_per_shard:
+        description: "samples per physics shard (2 pressures x 2 materials each)"
+        default: "2500"
       release_tag:
         description: "release to attach the shards to"
         default: "dataset-v1"
@@ -36,8 +35,8 @@ jobs:
     steps:
       - id: m
         run: |
-          python3 -c "import json; print('geom=' + json.dumps(list(range(int('${{ inputs.n_shards }}')))))" >> "$GITHUB_OUTPUT"
-          python3 -c "import json; n=int('${{ inputs.n_physics }}'); print('phys=' + json.dumps(list(range(int('${{ inputs.n_physics_shards }}'))) if n > 0 else []))" >> "$GITHUB_OUTPUT"
+          python3 -c "import json,os; n=int('${{ inputs.n_shards }}'); print('geom='+json.dumps(list(range(n))))" >> $GITHUB_OUTPUT
+          python3 -c "import json,os; n=int('${{ inputs.physics_shards }}'); print('phys='+json.dumps(list(range(n))))" >> $GITHUB_OUTPUT
 
   geometry:
     needs: plan
@@ -50,21 +49,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-          cache: pip
+        with: { python-version: "3.12", cache: pip }
       - run: python -m pip install --upgrade pip && python -m pip install -e ".[physics]"
-      - name: Generate shard
-        run: python scripts/generate_dataset.py --out output/dataset --shard ${{ matrix.shard }} --n ${{ inputs.n_per_shard }} --workers 4 --zip
+      - run: python scripts/generate_dataset.py --out output/dataset --shard ${{ matrix.shard }} --n ${{ inputs.n_per_shard }} --workers 4 --zip
       - uses: actions/upload-artifact@v4
         with:
-          name: shard-geometry-${{ matrix.shard }}
+          name: shard_${{ matrix.shard }}
           path: output/dataset/shard_*.zip
-          retention-days: 30
+          retention-days: 7
 
   physics:
     needs: plan
-    if: ${{ needs.plan.outputs.phys != '[]' }}
     runs-on: ubuntu-latest
     timeout-minutes: 350
     strategy:
@@ -74,37 +69,29 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-          cache: pip
+        with: { python-version: "3.12", cache: pip }
       - run: python -m pip install --upgrade pip && python -m pip install -e ".[physics]"
-      - name: Generate physics shard
-        run: python scripts/generate_dataset.py --out output/dataset --shard ${{ matrix.shard }} --n ${{ inputs.n_physics }} --workers 4 --physics --zip
+      - run: python scripts/generate_dataset.py --out output/dataset --shard ${{ matrix.shard }} --n ${{ inputs.physics_per_shard }} --workers 4 --physics --zip
       - uses: actions/upload-artifact@v4
         with:
-          name: shard-physics-${{ matrix.shard }}
+          name: physics_shard_${{ matrix.shard }}
           path: output/dataset/shard_*_physics.zip
-          retention-days: 30
+          retention-days: 7
 
-  publish:
+  release:
     needs: [geometry, physics]
-    if: ${{ always() && needs.geometry.result == 'success' }}
+    if: always() && (needs.geometry.result == 'success' || needs.physics.result == 'success')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
-        with:
-          path: shards
-          merge-multiple: true
-      - name: Checksums and manifest
-        run: |
-          cd shards && ls -la && sha256sum *.zip > SHA256SUMS.txt && cat SHA256SUMS.txt
-          cp ../slicerheart_patch_flattening/neural/DATASET.md .
-      - name: Create or update release and upload
+        with: { path: shards, merge-multiple: true }
+      - name: Attach shards to release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          TAG="${{ inputs.release_tag }}"
-          gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" --title "Synthetic baffle dataset $TAG" \
-            --notes "Generated by the generate-dataset workflow from commit ${GITHUB_SHA}. Record format and provenance: DATASET.md (attached). Shards are reproducible from their seeds (manifest.json inside each zip)." --prerelease
-          gh release upload "$TAG" shards/*.zip shards/SHA256SUMS.txt shards/DATASET.md --clobber
+          ls -la shards
+          gh release view "${{ inputs.release_tag }}" >/dev/null 2>&1 || \
+            gh release create "${{ inputs.release_tag }}" --title "Synthetic baffle dataset v1" \
+              --notes "Generated by the generate-dataset workflow from commit ${GITHUB_SHA}. Record format and intended use: slicerheart_patch_flattening/neural/DATASET.md; training path and roadmap: reports/05_roadmap_inverse_surrogate.md. Each shard is reproducible from its manifest seed with scripts/generate_dataset.py."
+          gh release upload "${{ inputs.release_tag }}" shards/*.zip --clobber

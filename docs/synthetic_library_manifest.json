@@ -1,0 +1,822 @@
+[
+  {
+    "name": "ctrl_halfcyl_r8_small",
+    "family": "control_developable",
+    "developable": true,
+    "n_vertices": 641,
+    "n_faces": 1197,
+    "area_mm2": 338.60751828497945,
+    "perimeter_mm": 66.25674362246144,
+    "bbox_mm": [
+      15.9586688965068,
+      17.990196962737237,
+      7.434102057185674
+    ],
+    "total_abs_gauss_curvature_deg": 5.0598801222842615,
+    "net_gauss_curvature_deg": 0.0037925332436879256,
+    "max_abs_K_per_mm2": 0.004752528633229356,
+    "params": {
+      "R": 8.0
+    },
+    "files": {
+      "vtp": "ctrl_halfcyl_r8_small.vtp",
+      "stl": "ctrl_halfcyl_r8_small.stl"
+    }
+  },
+  {
+    "name": "ctrl_halfcyl_r6_long",
+    "family": "control_developable",
+    "developable": true,
+    "n_vertices": 872,
+    "n_faces": 1639,
+    "area_mm2": 463.76508052231736,
+    "perimeter_mm": 82.06088748965912,
+    "bbox_mm": [
+      11.85730921530946,
+      31.98993184002252,
+      5.0787307719124755
+    ],
+    "total_abs_gauss_curvature_deg": 16.77491850473513,
+    "net_gauss_curvature_deg": 1.680836133886284,
+    "max_abs_K_per_mm2": 0.007472610086761674,
+    "params": {
+      "R": 6.0
+    },
+    "files": {
+      "vtp": "ctrl_halfcyl_r6_long.vtp",
+      "stl": "ctrl_halfcyl_r6_long.stl"
+    }
+  },
+  {
+    "name": "ctrl_cone_r9",
+    "family": "control_developable",
+    "developable": true,
+    "n_vertices": 879,
+    "n_faces": 1659,
+    "area_mm2": 470.9196829165716,
+    "perimeter_mm": 77.77720126377123,
+    "bbox_mm": [
+      19.00293821945929,
+      25.16527486509341,
+      9.287038022437967
+    ],
+    "total_abs_gauss_curvature_deg": 5.754388025259554,
+    "net_gauss_curvature_deg": 0.3667047195803168,
+    "max_abs_K_per_mm2": 0.0030661144471705536,
+    "params": {
+      "R0": 9.0,
+      "slope": 0.25
+    },
+    "files": {
+      "vtp": "ctrl_cone_r9.vtp",
+      "stl": "ctrl_cone_r9.stl"
+    }
+  },
+  {
+    "name": "ctrl_spherecap_r12",
+    "family": "control_nondevelopable",
+    "developable": false,
+    "n_vertices": 483,
+    "n_faces": 893,
+    "area_mm2": 242.16866377525767,
+    "perimeter_mm": 51.36313662781121,
+    "bbox_mm": [
+      16.34823685936349,
+      16.349017016587148,
+      3.2177308162534044
+    ],
+    "total_abs_gauss_curvature_deg": 88.5193562594479,
+    "net_gauss_curvature_deg": 88.5193562594479,
+    "max_abs_K_per_mm2": 0.008853785298984694,
+    "params": {
+      "R": 12.0
+    },
+    "files": {
+      "vtp": "ctrl_spherecap_r12.vtp",
+      "stl": "ctrl_spherecap_r12.stl"
+    }
+  },
+  {
+    "name": "ctrl_saddle_k0p08",
+    "family": "control_nondevelopable",
+    "developable": false,
+    "n_vertices": 712,
+    "n_faces": 1336,
+    "area_mm2": 445.44011961318796,
+    "perimeter_mm": 80.93085750906076,
+    "bbox_mm": [
+      22.0,
+      21.973709569069364,
+      9.661989593413423
+    ],
+    "total_abs_gauss_curvature_deg": 85.07875505496104,
+    "net_gauss_curvature_deg": -85.07875505496104,
+    "max_abs_K_per_mm2": 0.006953102369486422,
+    "params": {
+      "kx": 0.08,
+      "ky": -0.08
+    },
+    "files": {
+      "vtp": "ctrl_saddle_k0p08.vtp",
+      "stl": "ctrl_saddle_k0p08.stl"
+    }
+  },
+  {
+    "name": "ctrl_ellipsoidcap",
+    "family": "control_nondevelopable",
+    "developable": false,
+    "n_vertices": 432,
+    "n_faces": 794,
+    "area_mm2": 247.7688366507159,
+    "perimeter_mm": 54.74399792790395,
+    "bbox_mm": [
+      20.0,
+      14.0,
+      2.5322950411916043
+    ],
+    "total_abs_gauss_curvature_deg": 56.14490891960333,
+    "net_gauss_curvature_deg": 56.14490891960333,
+    "max_abs_K_per_mm2": 0.009135797049337377,
+    "params": {
+      "a": 14.0,
+      "b": 10.0,
+      "c": 8.0
+    },
+    "files": {
+      "vtp": "ctrl_ellipsoidcap.vtp",
+      "stl": "ctrl_ellipsoidcap.stl"
+    }
+  },
+  {
+    "name": "dorv_tunnel_01",
+    "family": "dorv_tunnel",
+    "developable": true,
+    "n_vertices": 783,
+    "n_faces": 1472,
+    "area_mm2": 417.44504629286223,
+    "perimeter_mm": 73.22158063942798,
+    "bbox_mm": [
+      13.999974572267018,
+      21.42487941375939,
+      7.589639803023145
+    ],
+    "total_abs_gauss_curvature_deg": 2.0977072256641085,
+    "net_gauss_curvature_deg": 0.31876242096984225,
+    "max_abs_K_per_mm2": 0.004281644187985453,
+    "params": {
+      "length": 22.0,
+      "r0": 7.0,
+      "r1": 7.0,
+      "bend_radius": "inf",
+      "twist_deg": 0.0,
+      "out_of_plane": 0.0
+    },
+    "files": {
+      "vtp": "dorv_tunnel_01.vtp",
+      "stl": "dorv_tunnel_01.stl"
+    }
+  },
+  {
+    "name": "dorv_tunnel_02",
+    "family": "dorv_tunnel",
+    "developable": false,
+    "n_vertices": 883,
+    "n_faces": 1666,
+    "area_mm2": 397.0177894402467,
+    "perimeter_mm": 76.91213483477107,
+    "bbox_mm": [
+      13.896657459664842,
+      20.094911822654492,
+      13.223021507290966
+    ],
+    "total_abs_gauss_curvature_deg": 90.41607642443401,
+    "net_gauss_curvature_deg": -89.182706507219,
+    "max_abs_K_per_mm2": 0.008238352621457685,
+    "params": {
+      "length": 26.0,
+      "r0": 7.5,
+      "r1": 6.0,
+      "bend_radius": 30.0,
+      "twist_deg": 10.0,
+      "out_of_plane": 0.0
+    },
+    "files": {
+      "vtp": "dorv_tunnel_02.vtp",
+      "stl": "dorv_tunnel_02.stl"
+    }
+  },
+  {
+    "name": "dorv_tunnel_03",
+    "family": "dorv_tunnel",
+    "developable": false,
+    "n_vertices": 1150,
+    "n_faces": 2185,
+    "area_mm2": 475.3801886488252,
+    "perimeter_mm": 88.48270402581596,
+    "bbox_mm": [
+      15.099633595182528,
+      21.967722967368587,
+      17.33366580609296
+    ],
+    "total_abs_gauss_curvature_deg": 146.70730961576533,
+    "net_gauss_curvature_deg": -138.65086816537837,
+    "max_abs_K_per_mm2": 0.4817202507795557,
+    "params": {
+      "length": 30.0,
+      "r0": 8.0,
+      "r1": 6.5,
+      "bend_radius": 22.0,
+      "twist_deg": 25.0,
+      "out_of_plane": 0.0
+    },
+    "files": {
+      "vtp": "dorv_tunnel_03.vtp",
+      "stl": "dorv_tunnel_03.stl"
+    }
+  },
+  {
+    "name": "dorv_tunnel_04",
+    "family": "dorv_tunnel",
+    "developable": false,
+    "n_vertices": 1503,
+    "n_faces": 2877,
+    "area_mm2": 632.4106801597056,
+    "perimeter_mm": 104.80271825151831,
+    "bbox_mm": [
+      16.84314998484297,
+      22.827336005594724,
+      22.749401684338594
+    ],
+    "total_abs_gauss_curvature_deg": 210.7021031098666,
+    "net_gauss_curvature_deg": -169.3189205973621,
+    "max_abs_K_per_mm2": 0.01430961032411343,
+    "params": {
+      "length": 34.0,
+      "r0": 8.5,
+      "r1": 7.0,
+      "bend_radius": 18.0,
+      "twist_deg": 40.0,
+      "out_of_plane": 2.0
+    },
+    "files": {
+      "vtp": "dorv_tunnel_04.vtp",
+      "stl": "dorv_tunnel_04.stl"
+    }
+  },
+  {
+    "name": "dorv_tunnel_05",
+    "family": "dorv_tunnel",
+    "developable": false,
+    "n_vertices": 575,
+    "n_faces": 1067,
+    "area_mm2": 242.13904292254432,
+    "perimeter_mm": 60.97051003650305,
+    "bbox_mm": [
+      10.833504733484277,
+      16.7023298163772,
+      11.910249631905911
+    ],
+    "total_abs_gauss_curvature_deg": 112.25434059014118,
+    "net_gauss_curvature_deg": -110.0114577267477,
+    "max_abs_K_per_mm2": 0.01673601407496933,
+    "params": {
+      "length": 24.0,
+      "r0": 6.0,
+      "r1": 5.0,
+      "bend_radius": 20.0,
+      "twist_deg": 15.0,
+      "out_of_plane": 1.0
+    },
+    "files": {
+      "vtp": "dorv_tunnel_05.vtp",
+      "stl": "dorv_tunnel_05.stl"
+    }
+  },
+  {
+    "name": "dorv_tunnel_06",
+    "family": "dorv_tunnel",
+    "developable": false,
+    "n_vertices": 1052,
+    "n_faces": 1996,
+    "area_mm2": 463.5553175192233,
+    "perimeter_mm": 84.86912400737572,
+    "bbox_mm": [
+      14.973108259789848,
+      20.529929740737177,
+      17.579851081813434
+    ],
+    "total_abs_gauss_curvature_deg": 117.4550953044774,
+    "net_gauss_curvature_deg": -106.16313610272275,
+    "max_abs_K_per_mm2": 0.009356009396780047,
+    "params": {
+      "length": 28.0,
+      "r0": 7.0,
+      "r1": 7.5,
+      "bend_radius": 25.0,
+      "twist_deg": -20.0,
+      "out_of_plane": -1.5
+    },
+    "files": {
+      "vtp": "dorv_tunnel_06.vtp",
+      "stl": "dorv_tunnel_06.stl"
+    }
+  },
+  {
+    "name": "dorv_tunnel_07",
+    "family": "dorv_tunnel",
+    "developable": false,
+    "n_vertices": 1316,
+    "n_faces": 2511,
+    "area_mm2": 514.7963712052881,
+    "perimeter_mm": 97.27328502184191,
+    "bbox_mm": [
+      16.647612711216684,
+      19.556079361838226,
+      20.377720197329563
+    ],
+    "total_abs_gauss_curvature_deg": 212.21109900489364,
+    "net_gauss_curvature_deg": -196.77852172144088,
+    "max_abs_K_per_mm2": 0.026191870761402055,
+    "params": {
+      "length": 32.0,
+      "r0": 9.0,
+      "r1": 6.0,
+      "bend_radius": 16.0,
+      "twist_deg": 30.0,
+      "out_of_plane": 0.0
+    },
+    "files": {
+      "vtp": "dorv_tunnel_07.vtp",
+      "stl": "dorv_tunnel_07.stl"
+    }
+  },
+  {
+    "name": "dorv_tunnel_08",
+    "family": "dorv_tunnel",
+    "developable": false,
+    "n_vertices": 577,
+    "n_faces": 1074,
+    "area_mm2": 194.04874680364355,
+    "perimeter_mm": 57.132725361510694,
+    "bbox_mm": [
+      12.737987026790513,
+      11.057140090641957,
+      10.214817991202773
+    ],
+    "total_abs_gauss_curvature_deg": 137.67237690421797,
+    "net_gauss_curvature_deg": -137.2940335123526,
+    "max_abs_K_per_mm2": 0.0217304989542721,
+    "params": {
+      "length": 20.0,
+      "r0": 6.5,
+      "r1": 6.5,
+      "bend_radius": 14.0,
+      "twist_deg": 0.0,
+      "out_of_plane": 0.0
+    },
+    "files": {
+      "vtp": "dorv_tunnel_08.vtp",
+      "stl": "dorv_tunnel_08.stl"
+    }
+  },
+  {
+    "name": "bp_tps_dorv_01",
+    "family": "baffle_planner_tps",
+    "developable": false,
+    "n_vertices": 590,
+    "n_faces": 1100,
+    "area_mm2": 293.0741972664328,
+    "perimeter_mm": 62.67801924062337,
+    "bbox_mm": [
+      22.046686176747823,
+      16.03109024193007,
+      3.3044380256528223
+    ],
+    "total_abs_gauss_curvature_deg": 20.980635533341474,
+    "net_gauss_curvature_deg": -5.9969332577298555,
+    "max_abs_K_per_mm2": 0.01074643249530207,
+    "params": {
+      "host": "sphere",
+      "host_R": 14.0,
+      "a": 12.0,
+      "b": 9.0,
+      "n_surface_points": 0,
+      "bulge": 0.0
+    },
+    "files": {
+      "vtp": "bp_tps_dorv_01.vtp",
+      "stl": "bp_tps_dorv_01.stl"
+    }
+  },
+  {
+    "name": "bp_tps_dorv_02",
+    "family": "baffle_planner_tps",
+    "developable": false,
+    "n_vertices": 530,
+    "n_faces": 984,
+    "area_mm2": 270.7811691703631,
+    "perimeter_mm": 59.46733010808242,
+    "bbox_mm": [
+      20.477016777894754,
+      15.607404536094156,
+      3.3526954290739206
+    ],
+    "total_abs_gauss_curvature_deg": 39.49632920931225,
+    "net_gauss_curvature_deg": -6.6576940497861985,
+    "max_abs_K_per_mm2": 0.19516760905549912,
+    "params": {
+      "host": "sphere",
+      "host_R": 12.0,
+      "a": 13.0,
+      "b": 8.0,
+      "n_surface_points": 1,
+      "bulge": 3.0
+    },
+    "files": {
+      "vtp": "bp_tps_dorv_02.vtp",
+      "stl": "bp_tps_dorv_02.stl"
+    }
+  },
+  {
+    "name": "bp_tps_dorv_03",
+    "family": "baffle_planner_tps",
+    "developable": false,
+    "n_vertices": 770,
+    "n_faces": 1448,
+    "area_mm2": 340.52704445363065,
+    "perimeter_mm": 71.88080930338906,
+    "bbox_mm": [
+      14.532104081622407,
+      21.406653811355724,
+      12.739062875940366
+    ],
+    "total_abs_gauss_curvature_deg": 119.44215660235871,
+    "net_gauss_curvature_deg": -21.078923029276982,
+    "max_abs_K_per_mm2": 0.28609854707258825,
+    "params": {
+      "host": "tube",
+      "host_R": 8.0,
+      "a": 15.0,
+      "b": 9.0,
+      "n_surface_points": 2,
+      "bulge": 2.5
+    },
+    "files": {
+      "vtp": "bp_tps_dorv_03.vtp",
+      "stl": "bp_tps_dorv_03.stl"
+    }
+  },
+  {
+    "name": "bp_tps_dorv_04",
+    "family": "baffle_planner_tps",
+    "developable": false,
+    "n_vertices": 895,
+    "n_faces": 1691,
+    "area_mm2": 358.0053781705818,
+    "perimeter_mm": 77.47408584698493,
+    "bbox_mm": [
+      12.565150510108339,
+      26.21654590469503,
+      13.515157114178198
+    ],
+    "total_abs_gauss_curvature_deg": 157.7425301155647,
+    "net_gauss_curvature_deg": -4.304835208447188,
+    "max_abs_K_per_mm2": 1.7950347095015542,
+    "params": {
+      "host": "tube",
+      "host_R": 7.0,
+      "a": 17.0,
+      "b": 8.0,
+      "n_surface_points": 3,
+      "bulge": 4.0
+    },
+    "files": {
+      "vtp": "bp_tps_dorv_04.vtp",
+      "stl": "bp_tps_dorv_04.stl"
+    }
+  },
+  {
+    "name": "bp_tps_dorv_05",
+    "family": "baffle_planner_tps",
+    "developable": false,
+    "n_vertices": 1151,
+    "n_faces": 2190,
+    "area_mm2": 531.259384557577,
+    "perimeter_mm": 88.28267061263843,
+    "bbox_mm": [
+      27.090077433438694,
+      20.905669873844097,
+      10.300093912923757
+    ],
+    "total_abs_gauss_curvature_deg": 117.25406004013601,
+    "net_gauss_curvature_deg": -26.030601498417315,
+    "max_abs_K_per_mm2": 0.2316482090897737,
+    "params": {
+      "host": "saddle",
+      "host_R": 15.0,
+      "a": 14.0,
+      "b": 10.0,
+      "n_surface_points": 1,
+      "bulge": -2.0
+    },
+    "files": {
+      "vtp": "bp_tps_dorv_05.vtp",
+      "stl": "bp_tps_dorv_05.stl"
+    }
+  },
+  {
+    "name": "bp_tps_dorv_06",
+    "family": "baffle_planner_tps",
+    "developable": false,
+    "n_vertices": 395,
+    "n_faces": 724,
+    "area_mm2": 236.90363269113493,
+    "perimeter_mm": 50.90205793759311,
+    "bbox_mm": [
+      17.253975934425664,
+      13.995659132566715,
+      6.22914744336058
+    ],
+    "total_abs_gauss_curvature_deg": 166.31568031730566,
+    "net_gauss_curvature_deg": 25.30263263540371,
+    "max_abs_K_per_mm2": 1.4176198663629804,
+    "params": {
+      "host": "sphere",
+      "host_R": 10.0,
+      "a": 10.0,
+      "b": 8.0,
+      "n_surface_points": 2,
+      "bulge": 5.0
+    },
+    "files": {
+      "vtp": "bp_tps_dorv_06.vtp",
+      "stl": "bp_tps_dorv_06.stl"
+    }
+  },
+  {
+    "name": "mustard_trouser_01",
+    "family": "mustard_senning",
+    "developable": true,
+    "n_vertices": 2044,
+    "n_faces": 3924,
+    "area_mm2": 1104.2664248671958,
+    "perimeter_mm": 129.19190661095203,
+    "bbox_mm": [
+      25.76870748950764,
+      40.0,
+      4.703156215386771
+    ],
+    "total_abs_gauss_curvature_deg": 3.38388448167158,
+    "net_gauss_curvature_deg": 0.3218510306940793,
+    "max_abs_K_per_mm2": 0.0008743622333852473,
+    "params": {
+      "R": 20.0
+    },
+    "files": {
+      "vtp": "mustard_trouser_01.vtp",
+      "stl": "mustard_trouser_01.stl"
+    }
+  },
+  {
+    "name": "mustard_trouser_02",
+    "family": "mustard_senning",
+    "developable": true,
+    "n_vertices": 2962,
+    "n_faces": 5725,
+    "area_mm2": 1616.2620585540744,
+    "perimeter_mm": 157.190941488532,
+    "bbox_mm": [
+      31.628676701722636,
+      48.0,
+      5.362278338496104
+    ],
+    "total_abs_gauss_curvature_deg": 2.814236387681001,
+    "net_gauss_curvature_deg": 0.25125813244992196,
+    "max_abs_K_per_mm2": 0.0004910013019429596,
+    "params": {
+      "R": 26.0
+    },
+    "files": {
+      "vtp": "mustard_trouser_02.vtp",
+      "stl": "mustard_trouser_02.stl"
+    }
+  },
+  {
+    "name": "mustard_trouser_03",
+    "family": "mustard_senning",
+    "developable": false,
+    "n_vertices": 3791,
+    "n_faces": 7356,
+    "area_mm2": 2191.4156201213627,
+    "perimeter_mm": 184.8400721912881,
+    "bbox_mm": [
+      38.0,
+      55.0,
+      11.191038373076397
+    ],
+    "total_abs_gauss_curvature_deg": 30.56152836646353,
+    "net_gauss_curvature_deg": -30.56152836646353,
+    "max_abs_K_per_mm2": 0.00035717095630775274,
+    "params": {
+      "kx": 0.025,
+      "ky": -0.0125
+    },
+    "files": {
+      "vtp": "mustard_trouser_03.vtp",
+      "stl": "mustard_trouser_03.stl"
+    }
+  },
+  {
+    "name": "mustard_trouser_04",
+    "family": "mustard_senning",
+    "developable": false,
+    "n_vertices": 2398,
+    "n_faces": 4617,
+    "area_mm2": 1260.7480425558742,
+    "perimeter_mm": 134.4172474855573,
+    "bbox_mm": [
+      29.089958278068963,
+      40.849459889239995,
+      11.132911529984202
+    ],
+    "total_abs_gauss_curvature_deg": 56.35042638834976,
+    "net_gauss_curvature_deg": 56.35042638834976,
+    "max_abs_K_per_mm2": 0.0010717885480601333,
+    "params": {
+      "R": 35.0
+    },
+    "files": {
+      "vtp": "mustard_trouser_04.vtp",
+      "stl": "mustard_trouser_04.stl"
+    }
+  },
+  {
+    "name": "senning_pv_patch_01",
+    "family": "mustard_senning",
+    "developable": true,
+    "n_vertices": 1016,
+    "n_faces": 1922,
+    "area_mm2": 544.6634848427609,
+    "perimeter_mm": 86.61037692006941,
+    "bbox_mm": [
+      16.131459618522488,
+      29.999999999890658,
+      5.007005804679943
+    ],
+    "total_abs_gauss_curvature_deg": 8.395035998785081,
+    "net_gauss_curvature_deg": 0.8941173522581506,
+    "max_abs_K_per_mm2": 0.004028473592789913,
+    "params": {
+      "R": 9.0
+    },
+    "files": {
+      "vtp": "senning_pv_patch_01.vtp",
+      "stl": "senning_pv_patch_01.stl"
+    }
+  },
+  {
+    "name": "papvr_baffle_01",
+    "family": "papvr",
+    "developable": true,
+    "n_vertices": 463,
+    "n_faces": 854,
+    "area_mm2": 242.3787057849706,
+    "perimeter_mm": 55.43333124776636,
+    "bbox_mm": [
+      10.990980898469028,
+      18.0,
+      5.27732372741524
+    ],
+    "total_abs_gauss_curvature_deg": 3.4070218850050074,
+    "net_gauss_curvature_deg": 0.42455295317952524,
+    "max_abs_K_per_mm2": 0.011927143727234637,
+    "params": {
+      "length": 18.0,
+      "r0": 5.5,
+      "r1": 5.5,
+      "bend_radius": "inf",
+      "twist_deg": 0.0,
+      "out_of_plane": 0.0
+    },
+    "files": {
+      "vtp": "papvr_baffle_01.vtp",
+      "stl": "papvr_baffle_01.stl"
+    }
+  },
+  {
+    "name": "papvr_baffle_02",
+    "family": "papvr",
+    "developable": false,
+    "n_vertices": 572,
+    "n_faces": 1065,
+    "area_mm2": 254.0177818210468,
+    "perimeter_mm": 60.66775227568707,
+    "bbox_mm": [
+      11.315833485025676,
+      15.571866388058728,
+      11.139047046102972
+    ],
+    "total_abs_gauss_curvature_deg": 87.04814251297657,
+    "net_gauss_curvature_deg": -85.74060211205669,
+    "max_abs_K_per_mm2": 0.010594339559411628,
+    "params": {
+      "length": 22.0,
+      "r0": 6.0,
+      "r1": 5.0,
+      "bend_radius": 24.0,
+      "twist_deg": 10.0,
+      "out_of_plane": 0.0
+    },
+    "files": {
+      "vtp": "papvr_baffle_02.vtp",
+      "stl": "papvr_baffle_02.stl"
+    }
+  },
+  {
+    "name": "papvr_baffle_03",
+    "family": "papvr",
+    "developable": false,
+    "n_vertices": 842,
+    "n_faces": 1587,
+    "area_mm2": 343.23636631696024,
+    "perimeter_mm": 73.76910773523792,
+    "bbox_mm": [
+      13.29112108650455,
+      16.921217343507557,
+      15.561980232082728
+    ],
+    "total_abs_gauss_curvature_deg": 145.22602523393928,
+    "net_gauss_curvature_deg": -139.15129326174508,
+    "max_abs_K_per_mm2": 0.018081619459156564,
+    "params": {
+      "length": 26.0,
+      "r0": 7.0,
+      "r1": 6.0,
+      "bend_radius": 18.0,
+      "twist_deg": 20.0,
+      "out_of_plane": 1.0
+    },
+    "files": {
+      "vtp": "papvr_baffle_03.vtp",
+      "stl": "papvr_baffle_03.stl"
+    }
+  },
+  {
+    "name": "papvr_baffle_04",
+    "family": "papvr",
+    "developable": false,
+    "n_vertices": 494,
+    "n_faces": 914,
+    "area_mm2": 206.3684752298244,
+    "perimeter_mm": 55.32132773274856,
+    "bbox_mm": [
+      11.715477805627048,
+      13.131135056986537,
+      11.049838505474275
+    ],
+    "total_abs_gauss_curvature_deg": 90.27665393381926,
+    "net_gauss_curvature_deg": -89.23767489825852,
+    "max_abs_K_per_mm2": 0.014470621849301176,
+    "params": {
+      "length": 20.0,
+      "r0": 5.0,
+      "r1": 6.5,
+      "bend_radius": 20.0,
+      "twist_deg": -15.0,
+      "out_of_plane": 0.0
+    },
+    "files": {
+      "vtp": "papvr_baffle_04.vtp",
+      "stl": "papvr_baffle_04.stl"
+    }
+  },
+  {
+    "name": "papvr_baffle_05",
+    "family": "papvr",
+    "developable": false,
+    "n_vertices": 990,
+    "n_faces": 1875,
+    "area_mm2": 370.2548170547525,
+    "perimeter_mm": 79.69501717721334,
+    "bbox_mm": [
+      14.623366594285557,
+      17.15072198767595,
+      17.235928777532386
+    ],
+    "total_abs_gauss_curvature_deg": 191.26631128619437,
+    "net_gauss_curvature_deg": -180.95341651062785,
+    "max_abs_K_per_mm2": 0.026013487639576165,
+    "params": {
+      "length": 28.0,
+      "r0": 8.0,
+      "r1": 6.0,
+      "bend_radius": 15.0,
+      "twist_deg": 30.0,
+      "out_of_plane": 1.5
+    },
+    "files": {
+      "vtp": "papvr_baffle_05.vtp",
+      "stl": "papvr_baffle_05.stl"
+    }
+  }
+]

@@ -1,0 +1,914 @@
+{
+ "shard": 0,
+ "n": 100,
+ "base_seed": 20261030,
+ "workers": 2,
+ "h": 1.0,
+ "physics": false,
+ "pressures_mmhg": null,
+ "materials": null,
+ "generator": "slicerheart_patch_flattening.physics_ml.synthetic_dataset.make_sample (wide=True)",
+ "seconds": 13.681735038757324,
+ "index": [
+  {
+   "id": 0,
+   "seed": 20261030,
+   "family": "tps",
+   "n_vertices": 639,
+   "suture_mismatch_mm": 0.7834214697687674,
+   "total_abs_K_deg": 60.974300597127545,
+   "n_darts": 1
+  },
+  {
+   "id": 1,
+   "seed": 20261030,
+   "family": "tps",
+   "n_vertices": 249,
+   "suture_mismatch_mm": 0.3566265599594838,
+   "total_abs_K_deg": 54.453777153332986,
+   "n_darts": 1
+  },
+  {
+   "id": 2,
+   "seed": 20261030,
+   "family": "tunnel",
+   "n_vertices": 388,
+   "suture_mismatch_mm": 1.5339862749117943,
+   "total_abs_K_deg": 60.12659203918813,
+   "n_darts": 1
+  },
+  {
+   "id": 3,
+   "seed": 20261030,
+   "family": "tps",
+   "n_vertices": 266,
+   "suture_mismatch_mm": 0.9475505318593322,
+   "total_abs_K_deg": 63.96691171793024,
+   "n_darts": 1
+  },
+  {
+   "id": 4,
+   "seed": 20261030,
+   "family": "trouser",
+   "n_vertices": 1685,
+   "suture_mismatch_mm": 0.0017929192748451506,
+   "total_abs_K_deg": 3.3667261529294907,
+   "n_darts": 0
+  },
+  {
+   "id": 5,
+   "seed": 20261030,
+   "family": "tps",
+   "n_vertices": 1447,
+   "suture_mismatch_mm": 7.704774686009584,
+   "total_abs_K_deg": 134.05307019523346,
+   "n_darts": 2
+  },
+  {
+   "id": 6,
+   "seed": 20261030,
+   "family": "cap",
+   "n_vertices": 410,
+   "suture_mismatch_mm": 2.3321324994624284,
+   "total_abs_K_deg": 51.376730063186635,
+   "n_darts": 2
+  },
+  {
+   "id": 7,
+   "seed": 20261030,
+   "family": "tps",
+   "n_vertices": 332,
+   "suture_mismatch_mm": 0.1354311653942606,
+   "total_abs_K_deg": 27.941908485433206,
+   "n_darts": 1
+  },
+  {
+   "id": 8,
+   "seed": 20261030,
+   "family": "tunnel",
+   "n_vertices": 684,
+   "suture_mismatch_mm": 7.695459716231711,
+   "total_abs_K_deg": 128.94737364641344,
+   "n_darts": 2
+  },
+  {
+   "id": 9,
+   "seed": 20261030,
+   "family": "tps",
+   "n_vertices": 443,
+   "suture_mismatch_mm": 1.7049371182836104,
+   "total_abs_K_deg": 99.49565888681273,
+   "n_darts": 2
+  },
+  {
+   "id": 10,
+   "seed": 20261030,
+   "family": "tunnel",
+   "n_vertices": 399,
+   "suture_mismatch_mm": 1.3663973331610058,
+   "total_abs_K_deg": 72.7175714427698,
+   "n_darts": 2
+  },
+  {
+   "id": 11,
+   "seed": 20261030,
+   "family": "tps",
+   "n_vertices": 657,
+   "suture_mismatch_mm": 1.0449061592326407,
+   "total_abs_K_deg": 127.08549737322869,
+   "n_darts": 2
+  },
+  {
+   "id": 12,
+   "seed": 20261030,
+   "family": "cap",
+   "n_vertices": 235,
+   "suture_mismatch_mm": 6.236299929885675,
+   "total_abs_K_deg": 106.91571548503117,
+   "n_darts": 2
+  },
+  {
+   "id": 13,
+   "seed": 20261030,
+   "family": "tunnel",
+   "n_vertices": 340,
+   "suture_mismatch_mm": 3.0172189599129884,
+   "total_abs_K_deg": 415.39198284064895,
+   "n_darts": 2
+  },
+  {
+   "id": 14,
+   "seed": 20261030,
+   "family": "tps",
+   "n_vertices": 277,
+   "suture_mismatch_mm": 1.9062921621202515,
+   "total_abs_K_deg": 50.806745638593476,
+   "n_darts": 1
+  },
+  {
+   "id": 15,
+   "seed": 20261030,
+   "family": "tunnel",
+   "n_vertices": 621,
+   "suture_mismatch_mm": 9.646737765316416,
+   "total_abs_K_deg": 136.7176413442116,
+   "n_darts": 2
+  },
+  {
+   "id": 16,
+   "seed": 20261030,
+   "family": "tunnel",
+   "n_vertices": 565,
+   "suture_mismatch_mm": 3.9337082958324388,
+   "total_abs_K_deg": 88.87745132606689,
+   "n_darts": 2
+  },
+  {
+   "id": 17,
+   "seed": 20261030,
+   "family": "cap",
+   "n_vertices": 436,
+   "suture_mismatch_mm": 1.9477782401441053,
+   "total_abs_K_deg": 40.620530405593065,
+   "n_darts": 0
+  },
+  {
+   "id": 18,
+   "seed": 20261030,
+   "family": "trouser",
+   "n_vertices": 3574,
+   "suture_mismatch_mm": 2.2190523851872586,
+   "total_abs_K_deg": 30.655245709055485,
+   "n_darts": 0
+  },
+  {
+   "id": 19,
+   "seed": 20261030,
+   "family": "tps",
+   "n_vertices": 448,
+   "suture_mismatch_mm": 1.0703525227583004,
+   "total_abs_K_deg": 121.9732526959376,
+   "n_darts": 2
+  },
+  {
+   "id": 20,
+   "seed": 20261030,
+   "family": "tunnel",
+   "n_vertices": 376,
+   "suture_mismatch_mm": 0.234818771427296,
+   "total_abs_K_deg": 32.73380225211287,
+   "n_darts": 0
+  },
+  {
+   "id": 21,
+   "seed": 20261030,
+   "family": "tps",
+   "n_vertices": 829,
+   "suture_mismatch_mm": 5.34684277993366,
+   "total_abs_K_deg": 120.119738480061,
+   "n_darts": 2
+  },
+  {
+   "id": 22,
+   "seed": 20261030,
+   "family": "tunnel",
+   "n_vertices": 436,
+   "suture_mismatch_mm": 3.054642063739343,
+   "total_abs_K_deg": 155.28766533008505,
+   "n_darts": 2
+  },
+  {
+   "id": 23,
+   "seed": 20261030,
+   "family": "tunnel",
+   "n_vertices": 323,
+   "suture_mismatch_mm": 7.589827145049975,
+   "total_abs_K_deg": 128.41424675513284,
+   "n_darts": 2
+  },
+  {
+   "id": 24,
+   "seed": 20261030,
+   "family": "cap",
+   "n_vertices": 131,
+   "suture_mismatch_mm": 1.562609440752243,
+   "total_abs_K_deg": 51.93401816149161,
+   "n_darts": 2
+  },
+  {
+   "id": 25,
+   "seed": 20261030,
+   "family": "tps",
+   "n_vertices": 289,
+   "suture_mismatch_mm": 3.4362976560655447,
+   "total_abs_K_deg": 58.589344388371856,
+   "n_darts": 1
+  },
+  {
+   "id": 26,
+   "seed": 20261030,
+   "family": "tps",
+   "n_vertices": 875,
+   "suture_mismatch_mm": 6.187565038915813,
+   "total_abs_K_deg": 117.89720941315927,
+   "n_darts": 1
+  },
+  {
+   "id": 27,
+   "seed": 20261030,
+   "family": "tunnel",
+   "n_vertices": 288,
+   "suture_mismatch_mm": 0.1763867985012606,
+   "total_abs_K_deg": 10.827544562443892,
+   "n_darts": 0
+  },
+  {
+   "id": 28,
+   "seed": 20261030,
+   "family": "tps",
+   "n_vertices": 439,
+   "suture_mismatch_mm": 2.3195091763373483,
+   "total_abs_K_deg": 109.32036653781428,
+   "n_darts": 1
+  },
+  {
+   "id": 29,
+   "seed": 20261030,
+   "family": "cap",
+   "n_vertices": 395,
+   "suture_mismatch_mm": 2.376381139864005,
+   "total_abs_K_deg": 74.80036394899275,
+   "n_darts": 2
+  },
+  {
+   "id": 30,
+   "seed": 20261030,
+   "family": "tps",
+   "n_vertices": 471,
+   "suture_mismatch_mm": 4.6622058668022435,
+   "total_abs_K_deg": 161.19358691823834,
+   "n_darts": 2
+  },
+  {
+   "id": 31,
+   "seed": 20261030,
+   "family": "cap",
+   "n_vertices": 209,
+   "suture_mismatch_mm": 1.091550000160744,
+   "total_abs_K_deg": 37.92085431488102,
+   "n_darts": 1
+  },
+  {
+   "id": 32,
+   "seed": 20261030,
+   "family": "tunnel",
+   "n_vertices": 609,
+   "suture_mismatch_mm": 0.25878510976923597,
+   "total_abs_K_deg": 16.756262059707513,
+   "n_darts": 0
+  },
+  {
+   "id": 33,
+   "seed": 20261030,
+   "family": "cap",
+   "n_vertices": 275,
+   "suture_mismatch_mm": 2.464260284452389,
+   "total_abs_K_deg": 89.22982962425033,
+   "n_darts": 2
+  },
+  {
+   "id": 34,
+   "seed": 20261030,
+   "family": "tunnel",
+   "n_vertices": 335,
+   "suture_mismatch_mm": 4.132455912780845,
+   "total_abs_K_deg": 103.34287754481058,
+   "n_darts": 2
+  },
+  {
+   "id": 35,
+   "seed": 20261030,
+   "family": "tunnel",
+   "n_vertices": 485,
+   "suture_mismatch_mm": 0.1874141694434538,
+   "total_abs_K_deg": 26.371023416562323,
+   "n_darts": 0
+  },
+  {
+   "id": 36,
+   "seed": 20261030,
+   "family": "tunnel",
+   "n_vertices": 537,
+   "suture_mismatch_mm": 0.937314296575074,
+   "total_abs_K_deg": 50.08627091458829,
+   "n_darts": 0
+  },
+  {
+   "id": 37,
+   "seed": 20261030,
+   "family": "tps",
+   "n_vertices": 943,
+   "suture_mismatch_mm": 12.697295615576047,
+   "total_abs_K_deg": 169.7651650472389,
+   "n_darts": 2
+  },
+  {
+   "id": 38,
+   "seed": 20261030,
+   "family": "tps",
+   "n_vertices": 334,
+   "suture_mismatch_mm": 1.2084079314148926,
+   "total_abs_K_deg": 37.555790056161825,
+   "n_darts": 1
+  },
+  {
+   "id": 39,
+   "seed": 20261030,
+   "family": "tps",
+   "n_vertices": 453,
+   "suture_mismatch_mm": 4.9300586865027665,
+   "total_abs_K_deg": 126.76982952819132,
+   "n_darts": 1
+  },
+  {
+   "id": 40,
+   "seed": 20261030,
+   "family": "tunnel",
+   "n_vertices": 797,
+   "suture_mismatch_mm": 1.2601658129229487,
+   "total_abs_K_deg": 41.48566164376104,
+   "n_darts": 1
+  },
+  {
+   "id": 41,
+   "seed": 20261030,
+   "family": "tunnel",
+   "n_vertices": 701,
+   "suture_mismatch_mm": 0.13154888050718783,
+   "total_abs_K_deg": 7.842715414714402,
+   "n_darts": 0
+  },
+  {
+   "id": 42,
+   "seed": 20261030,
+   "family": "tunnel",
+   "n_vertices": 1751,
+   "suture_mismatch_mm": 1.2844502284733434,
+   "total_abs_K_deg": 22.726211438029924,
+   "n_darts": 0
+  },
+  {
+   "id": 43,
+   "seed": 20261030,
+   "family": "tunnel",
+   "n_vertices": 415,
+   "suture_mismatch_mm": 3.5796946633507853,
+   "total_abs_K_deg": 90.05931552729338,
+   "n_darts": 2
+  },
+  {
+   "id": 44,
+   "seed": 20261030,
+   "family": "tps",
+   "n_vertices": 812,
+   "suture_mismatch_mm": 5.973845067692562,
+   "total_abs_K_deg": 109.42493851078584,
+   "n_darts": 1
+  },
+  {
+   "id": 45,
+   "seed": 20261030,
+   "family": "tps",
+   "n_vertices": 186,
+   "suture_mismatch_mm": 3.0943300242520264,
+   "total_abs_K_deg": 133.1471700667388,
+   "n_darts": 2
+  },
+  {
+   "id": 46,
+   "seed": 20261030,
+   "family": "tunnel",
+   "n_vertices": 774,
+   "suture_mismatch_mm": 5.34400339697388,
+   "total_abs_K_deg": 282.6419146110151,
+   "n_darts": 2
+  },
+  {
+   "id": 47,
+   "seed": 20261030,
+   "family": "cap",
+   "n_vertices": 446,
+   "suture_mismatch_mm": 9.535470567197732,
+   "total_abs_K_deg": 144.388176307244,
+   "n_darts": 2
+  },
+  {
+   "id": 48,
+   "seed": 20261030,
+   "family": "tps",
+   "n_vertices": 394,
+   "suture_mismatch_mm": 2.3837735522380816,
+   "total_abs_K_deg": 85.86910893369827,
+   "n_darts": 2
+  },
+  {
+   "id": 49,
+   "seed": 20261030,
+   "family": "tps",
+   "n_vertices": 381,
+   "suture_mismatch_mm": 0.21872357853888724,
+   "total_abs_K_deg": 18.54575729472944,
+   "n_darts": 0
+  },
+  {
+   "id": 50,
+   "seed": 20261031,
+   "family": "tunnel",
+   "n_vertices": 1658,
+   "suture_mismatch_mm": 5.762422436693744,
+   "total_abs_K_deg": 201.55307500441552,
+   "n_darts": 2
+  },
+  {
+   "id": 51,
+   "seed": 20261031,
+   "family": "tps",
+   "n_vertices": 249,
+   "suture_mismatch_mm": 0.19506317342813584,
+   "total_abs_K_deg": 10.961519286409363,
+   "n_darts": 0
+  },
+  {
+   "id": 52,
+   "seed": 20261031,
+   "family": "trouser",
+   "n_vertices": 2708,
+   "suture_mismatch_mm": 5.047798427831461,
+   "total_abs_K_deg": 59.16516222533995,
+   "n_darts": 0
+  },
+  {
+   "id": 53,
+   "seed": 20261031,
+   "family": "cap",
+   "n_vertices": 411,
+   "suture_mismatch_mm": 5.313963919319203,
+   "total_abs_K_deg": 112.08024254745818,
+   "n_darts": 2
+  },
+  {
+   "id": 54,
+   "seed": 20261031,
+   "family": "tunnel",
+   "n_vertices": 557,
+   "suture_mismatch_mm": 9.906623585831014,
+   "total_abs_K_deg": 129.32985331812804,
+   "n_darts": 2
+  },
+  {
+   "id": 55,
+   "seed": 20261031,
+   "family": "cap",
+   "n_vertices": 285,
+   "suture_mismatch_mm": 8.939950123678782,
+   "total_abs_K_deg": 136.67598420872307,
+   "n_darts": 2
+  },
+  {
+   "id": 56,
+   "seed": 20261031,
+   "family": "cap",
+   "n_vertices": 722,
+   "suture_mismatch_mm": 9.28444555538186,
+   "total_abs_K_deg": 128.65433103453196,
+   "n_darts": 0
+  },
+  {
+   "id": 57,
+   "seed": 20261031,
+   "family": "tunnel",
+   "n_vertices": 645,
+   "suture_mismatch_mm": 0.18519071343556726,
+   "total_abs_K_deg": 15.50665002341574,
+   "n_darts": 0
+  },
+  {
+   "id": 58,
+   "seed": 20261031,
+   "family": "tunnel",
+   "n_vertices": 590,
+   "suture_mismatch_mm": 0.5876916294685579,
+   "total_abs_K_deg": 24.716125739729705,
+   "n_darts": 0
+  },
+  {
+   "id": 59,
+   "seed": 20261031,
+   "family": "trouser",
+   "n_vertices": 841,
+   "suture_mismatch_mm": 0.0011316546477555534,
+   "total_abs_K_deg": 0.9508826164064774,
+   "n_darts": 0
+  },
+  {
+   "id": 60,
+   "seed": 20261031,
+   "family": "tunnel",
+   "n_vertices": 458,
+   "suture_mismatch_mm": 0.3072149636706327,
+   "total_abs_K_deg": 25.626821900876042,
+   "n_darts": 0
+  },
+  {
+   "id": 61,
+   "seed": 20261031,
+   "family": "tps",
+   "n_vertices": 582,
+   "suture_mismatch_mm": 5.09231450340474,
+   "total_abs_K_deg": 101.56046713394663,
+   "n_darts": 1
+  },
+  {
+   "id": 62,
+   "seed": 20261031,
+   "family": "tunnel",
+   "n_vertices": 745,
+   "suture_mismatch_mm": 7.239604031187648,
+   "total_abs_K_deg": 157.83015357705102,
+   "n_darts": 2
+  },
+  {
+   "id": 63,
+   "seed": 20261031,
+   "family": "cap",
+   "n_vertices": 210,
+   "suture_mismatch_mm": 1.683217136913157,
+   "total_abs_K_deg": 34.87366979714323,
+   "n_darts": 0
+  },
+  {
+   "id": 64,
+   "seed": 20261031,
+   "family": "tunnel",
+   "n_vertices": 414,
+   "suture_mismatch_mm": 9.60033829779006,
+   "total_abs_K_deg": 149.08321396992667,
+   "n_darts": 2
+  },
+  {
+   "id": 65,
+   "seed": 20261031,
+   "family": "tunnel",
+   "n_vertices": 744,
+   "suture_mismatch_mm": 6.471346706371083,
+   "total_abs_K_deg": 121.73289465119639,
+   "n_darts": 2
+  },
+  {
+   "id": 66,
+   "seed": 20261031,
+   "family": "tunnel",
+   "n_vertices": 356,
+   "suture_mismatch_mm": 0.9601695216893703,
+   "total_abs_K_deg": 42.171772772193954,
+   "n_darts": 1
+  },
+  {
+   "id": 67,
+   "seed": 20261031,
+   "family": "tunnel",
+   "n_vertices": 532,
+   "suture_mismatch_mm": 5.909102157428259,
+   "total_abs_K_deg": 103.5899868316711,
+   "n_darts": 2
+  },
+  {
+   "id": 68,
+   "seed": 20261031,
+   "family": "trouser",
+   "n_vertices": 1317,
+   "suture_mismatch_mm": 2.221812448886425,
+   "total_abs_K_deg": 20.541649707497417,
+   "n_darts": 0
+  },
+  {
+   "id": 69,
+   "seed": 20261031,
+   "family": "tunnel",
+   "n_vertices": 765,
+   "suture_mismatch_mm": 2.6208309045268194,
+   "total_abs_K_deg": 51.7078539905503,
+   "n_darts": 0
+  },
+  {
+   "id": 70,
+   "seed": 20261031,
+   "family": "tunnel",
+   "n_vertices": 806,
+   "suture_mismatch_mm": 1.045562354592045,
+   "total_abs_K_deg": 51.62562378072859,
+   "n_darts": 2
+  },
+  {
+   "id": 71,
+   "seed": 20261031,
+   "family": "tps",
+   "n_vertices": 156,
+   "suture_mismatch_mm": 1.2083388484465676,
+   "total_abs_K_deg": 29.415157758288675,
+   "n_darts": 1
+  },
+  {
+   "id": 72,
+   "seed": 20261031,
+   "family": "trouser",
+   "n_vertices": 2419,
+   "suture_mismatch_mm": 5.040208945695124,
+   "total_abs_K_deg": 50.99176502339888,
+   "n_darts": 0
+  },
+  {
+   "id": 73,
+   "seed": 20261031,
+   "family": "tunnel",
+   "n_vertices": 595,
+   "suture_mismatch_mm": 8.658696545730564,
+   "total_abs_K_deg": 140.8133613279061,
+   "n_darts": 2
+  },
+  {
+   "id": 74,
+   "seed": 20261031,
+   "family": "tps",
+   "n_vertices": 1061,
+   "suture_mismatch_mm": 8.863729160418895,
+   "total_abs_K_deg": 152.61607119047278,
+   "n_darts": 2
+  },
+  {
+   "id": 75,
+   "seed": 20261031,
+   "family": "tps",
+   "n_vertices": 496,
+   "suture_mismatch_mm": 0.38161660372778694,
+   "total_abs_K_deg": 40.04525055147505,
+   "n_darts": 0
+  },
+  {
+   "id": 76,
+   "seed": 20261031,
+   "family": "tunnel",
+   "n_vertices": 448,
+   "suture_mismatch_mm": 0.20478218559299133,
+   "total_abs_K_deg": 21.163576437616335,
+   "n_darts": 0
+  },
+  {
+   "id": 77,
+   "seed": 20261031,
+   "family": "tunnel",
+   "n_vertices": 672,
+   "suture_mismatch_mm": 1.7244199006962422,
+   "total_abs_K_deg": 75.03180317074418,
+   "n_darts": 2
+  },
+  {
+   "id": 78,
+   "seed": 20261031,
+   "family": "tunnel",
+   "n_vertices": 685,
+   "suture_mismatch_mm": 0.12370767256702331,
+   "total_abs_K_deg": 9.414380944872763,
+   "n_darts": 0
+  },
+  {
+   "id": 79,
+   "seed": 20261031,
+   "family": "tps",
+   "n_vertices": 210,
+   "suture_mismatch_mm": 0.7986591573365145,
+   "total_abs_K_deg": 140.28683470853557,
+   "n_darts": 1
+  },
+  {
+   "id": 80,
+   "seed": 20261031,
+   "family": "cap",
+   "n_vertices": 180,
+   "suture_mismatch_mm": 4.818949277666816,
+   "total_abs_K_deg": 84.52166123093149,
+   "n_darts": 2
+  },
+  {
+   "id": 81,
+   "seed": 20261031,
+   "family": "cap",
+   "n_vertices": 264,
+   "suture_mismatch_mm": 0.736563220174582,
+   "total_abs_K_deg": 27.58513032112411,
+   "n_darts": 1
+  },
+  {
+   "id": 82,
+   "seed": 20261031,
+   "family": "tps",
+   "n_vertices": 155,
+   "suture_mismatch_mm": 5.827485847608512,
+   "total_abs_K_deg": 186.06643156743115,
+   "n_darts": 2
+  },
+  {
+   "id": 83,
+   "seed": 20261031,
+   "family": "tunnel",
+   "n_vertices": 454,
+   "suture_mismatch_mm": 9.645059688100845,
+   "total_abs_K_deg": 134.29611233125914,
+   "n_darts": 2
+  },
+  {
+   "id": 84,
+   "seed": 20261031,
+   "family": "tps",
+   "n_vertices": 390,
+   "suture_mismatch_mm": 1.4238363550330122,
+   "total_abs_K_deg": 49.64014602565403,
+   "n_darts": 1
+  },
+  {
+   "id": 85,
+   "seed": 20261031,
+   "family": "tps",
+   "n_vertices": 417,
+   "suture_mismatch_mm": 0.8086365488265908,
+   "total_abs_K_deg": 17.45389537754491,
+   "n_darts": 0
+  },
+  {
+   "id": 86,
+   "seed": 20261031,
+   "family": "trouser",
+   "n_vertices": 2481,
+   "suture_mismatch_mm": 0.0003772741798775403,
+   "total_abs_K_deg": 0.883367875137612,
+   "n_darts": 0
+  },
+  {
+   "id": 87,
+   "seed": 20261031,
+   "family": "tunnel",
+   "n_vertices": 696,
+   "suture_mismatch_mm": 0.12453100038314835,
+   "total_abs_K_deg": 10.706029364824067,
+   "n_darts": 0
+  },
+  {
+   "id": 88,
+   "seed": 20261031,
+   "family": "tunnel",
+   "n_vertices": 390,
+   "suture_mismatch_mm": 0.546248168961848,
+   "total_abs_K_deg": 32.58860734641011,
+   "n_darts": 1
+  },
+  {
+   "id": 89,
+   "seed": 20261031,
+   "family": "tps",
+   "n_vertices": 660,
+   "suture_mismatch_mm": 1.6868114012987037,
+   "total_abs_K_deg": 76.03819093345007,
+   "n_darts": 1
+  },
+  {
+   "id": 90,
+   "seed": 20261031,
+   "family": "cap",
+   "n_vertices": 385,
+   "suture_mismatch_mm": 11.6839081852014,
+   "total_abs_K_deg": 150.54051669064722,
+   "n_darts": 2
+  },
+  {
+   "id": 91,
+   "seed": 20261031,
+   "family": "tunnel",
+   "n_vertices": 377,
+   "suture_mismatch_mm": 0.16595914685902158,
+   "total_abs_K_deg": 31.146865021939966,
+   "n_darts": 1
+  },
+  {
+   "id": 92,
+   "seed": 20261031,
+   "family": "tps",
+   "n_vertices": 394,
+   "suture_mismatch_mm": 1.1520596501349465,
+   "total_abs_K_deg": 112.95398395002918,
+   "n_darts": 2
+  },
+  {
+   "id": 93,
+   "seed": 20261031,
+   "family": "tps",
+   "n_vertices": 320,
+   "suture_mismatch_mm": 0.6538211259814078,
+   "total_abs_K_deg": 42.821527218356366,
+   "n_darts": 1
+  },
+  {
+   "id": 94,
+   "seed": 20261031,
+   "family": "tps",
+   "n_vertices": 598,
+   "suture_mismatch_mm": 9.12052896349549,
+   "total_abs_K_deg": 142.68663473247682,
+   "n_darts": 2
+  },
+  {
+   "id": 95,
+   "seed": 20261031,
+   "family": "cap",
+   "n_vertices": 471,
+   "suture_mismatch_mm": 12.272382793969413,
+   "total_abs_K_deg": 216.6539619956031,
+   "n_darts": 2
+  },
+  {
+   "id": 96,
+   "seed": 20261031,
+   "family": "tunnel",
+   "n_vertices": 641,
+   "suture_mismatch_mm": 2.65988798879518,
+   "total_abs_K_deg": 68.0364458137036,
+   "n_darts": 1
+  },
+  {
+   "id": 97,
+   "seed": 20261031,
+   "family": "tunnel",
+   "n_vertices": 326,
+   "suture_mismatch_mm": 1.1062103939202574,
+   "total_abs_K_deg": 48.94085509418738,
+   "n_darts": 1
+  },
+  {
+   "id": 98,
+   "seed": 20261031,
+   "family": "tps",
+   "n_vertices": 329,
+   "suture_mismatch_mm": 7.389667458364336,
+   "total_abs_K_deg": 167.56887336747,
+   "n_darts": 2
+  },
+  {
+   "id": 99,
+   "seed": 20261031,
+   "family": "trouser",
+   "n_vertices": 1478,
+   "suture_mismatch_mm": 8.285103731965142,
+   "total_abs_K_deg": 132.17296429269743,
+   "n_darts": 0
+  }
+ ]
+}

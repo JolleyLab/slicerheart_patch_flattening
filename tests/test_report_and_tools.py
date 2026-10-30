@@ -53,8 +53,8 @@ def test_pipeline_recommended(shapes):
 def test_synthetic_dataset(tmp_path):
     from slicerheart_patch_flattening.physics_ml.synthetic_dataset import make_dataset
     idx = make_dataset(3, str(tmp_path / "ds"), seed=1, h=1.3)
-    assert len(idx) == 3 and os.path.exists(tmp_path / "ds" / "sample_00002.npz")
-    d = np.load(tmp_path / "ds" / "sample_00000.npz")
+    assert len(idx) == 3 and os.path.exists(tmp_path / "ds" / "sample_000002.npz")
+    d = np.load(tmp_path / "ds" / "sample_000000.npz")
     assert d["arap_outline"].shape == (128, 2) and d["boundary_resampled"].shape == (128, 3)
 
 
@@ -63,3 +63,23 @@ def test_baffle_planner_tps_generator():
     b3 = np.c_[10 * np.cos(t), 8 * np.sin(t), 2 * np.sin(2 * t)]
     m = G.baffle_planner_patch(b3, 1.2)
     assert m.n_vertices > 50 and len(m.boundary_loop()) > 30
+
+
+def test_dataset_slice_and_loader():
+    from slicerheart_patch_flattening.neural.dataset_io import load_shards, split_of, BaffleDataset
+    pytest.importorskip("torch")
+    here = os.path.join(os.path.dirname(__file__), "..", "slicerheart_patch_flattening", "neural", "data", "sample_100")
+    recs = load_shards([here], limit=20)
+    assert len(recs) == 20 and {"arap_uv", "lscm_uv", "vertex_stretch_s1", "faces", "id"} <= set(recs[0])
+    assert split_of(5) in ("train", "val", "test") and split_of(5) == split_of(5)
+    ds = BaffleDataset(recs)
+    b, s, r, sc = ds[0]
+    assert tuple(b.shape) == (128, 3) and tuple(s.shape) == (256, 6) and tuple(r.shape) == (128, 2)
+
+
+def test_generate_dataset_script(tmp_path):
+    import subprocess, sys, json
+    script = os.path.join(os.path.dirname(__file__), "..", "scripts", "generate_dataset.py")
+    subprocess.run([sys.executable, script, "--out", str(tmp_path), "--shard", "1", "--n", "4", "--workers", "2"], check=True, timeout=600)
+    man = json.load(open(tmp_path / "shard_01" / "manifest.json"))
+    assert man["n"] == 4 and sorted(r["id"] for r in man["index"]) == [4, 5, 6, 7]

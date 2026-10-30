@@ -36,11 +36,22 @@ def outline_errors(resid_pred, resid_true):
                 per_shape_rms=np.sqrt((d**2).mean(1)), per_shape_max=d.max(1))
 
 
-def train_one(arr, train_idx, test_idx, epochs=80, lr=2e-3, batch=32, seed=0, verbose=False):
+def shift_invariant_mse(pred, target):
+    """Min over cyclic shifts of the boundary index of the per-point MSE (start-point ambiguity)."""
+    K = pred.shape[1]
+    best = None
+    for s in range(K):
+        e = ((pred - torch.roll(target, s, dims=1)) ** 2).mean(dim=(1, 2))
+        best = e if best is None else torch.minimum(best, e)
+    return best.mean()
+
+
+def train_one(arr, train_idx, test_idx, epochs=80, lr=2e-3, batch=32, seed=0, verbose=False,
+              device="cpu", amp=False, shift_invariant=False):
     torch.manual_seed(seed)
-    model = OutlineSurrogate()
-    Xb, Xs = to_t(arr["boundary"]), to_t(arr["surface"])
-    Y, S = to_t(arr["residual"]), to_t(arr["scalars"])
+    model = OutlineSurrogate().to(device)
+    Xb, Xs = to_t(arr["boundary"]).to(device), to_t(arr["surface"]).to(device)
+    Y, S = to_t(arr["residual"]).to(device), to_t(arr["scalars"]).to(device)
     s_scale = S[train_idx].std(0) + 1e-6
     opt = torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=1e-4)
     sched = torch.optim.lr_scheduler.OneCycleLR(opt, max_lr=lr, total_steps=epochs * max(1, len(train_idx) // batch + 1))
@@ -50,16 +61,18 @@ def train_one(arr, train_idx, test_idx, epochs=80, lr=2e-3, batch=32, seed=0, ve
         model.train(); perm = np.random.permutation(tr); tot = 0.0
         for i in range(0, len(perm), batch):
             b = perm[i:i + batch]
-            resid, sc = model(Xb[b], Xs[b])
-            loss = ((resid - Y[b])**2).mean() + 0.05 * (((sc - S[b]) / s_scale)**2).mean()
+            with torch.autocast(device_type=device if device != "cpu" else "cpu", enabled=amp, dtype=torch.bfloat16):
+                resid, sc = model(Xb[b], Xs[b])
+                main = shift_invariant_mse(resid.float(), Y[b]) if shift_invariant else ((resid.float() - Y[b])**2).mean()
+                loss = main + 0.05 * (((sc.float() - S[b]) / s_scale)**2).mean()
             opt.zero_grad(); loss.backward(); opt.step(); sched.step(); tot += loss.item() * len(b)
         if verbose and (ep % 10 == 0 or ep == epochs - 1):
             print(f"    epoch {ep:3d} train loss {tot / len(tr):.4f}", flush=True)
     model.eval()
     with torch.no_grad():
         resid, sc = model(Xb[test_idx], Xs[test_idx])
-    err = outline_errors(resid.numpy(), arr["residual"][test_idx])
-    sc_err = np.abs(sc.numpy() - arr["scalars"][test_idx]).mean(0)
+    err = outline_errors(resid.float().cpu().numpy(), arr["residual"][test_idx])
+    sc_err = np.abs(sc.float().cpu().numpy() - arr["scalars"][test_idx]).mean(0)
     with torch.no_grad():
         t1 = time.time(); model(Xb[test_idx[:1]], Xs[test_idx[:1]]); dt = time.time() - t1
     return model, dict(train_time_s=time.time() - t0, infer_ms=1000 * dt, n_train=int(len(train_idx)),
@@ -70,15 +83,23 @@ def train_one(arr, train_idx, test_idx, epochs=80, lr=2e-3, batch=32, seed=0, ve
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--data", nargs="+", required=True)
+    ap.add_argument("--data", nargs="*", default=[], help="directories of sample_*.npz (legacy)")
     ap.add_argument("--out", default="output/surrogate")
     ap.add_argument("--sizes", nargs="*", type=int, default=[250, 500, 1000, 2000])
     ap.add_argument("--epochs", type=int, default=None, help="epochs per run (default: budget / n_train)")
     ap.add_argument("--budget", type=int, default=24000, help="sample-epochs per run when --epochs is not given")
     ap.add_argument("--max-samples", type=int, default=None)
+    ap.add_argument("--device", default="cuda" if torch.cuda.is_available() else "cpu")
+    ap.add_argument("--amp", action="store_true", help="bf16 autocast")
+    ap.add_argument("--shift-invariant", action="store_true", help="min over cyclic shifts of the outline loss")
+    ap.add_argument("--shards", nargs="*", default=None, help="shard zips/dirs (dataset v1) instead of --data sample dirs")
     a = ap.parse_args()
     os.makedirs(a.out, exist_ok=True)
-    recs = load_raw(a.data)
+    if a.shards:
+        from .dataset_io import load_shards
+        recs = load_shards(a.shards, limit=a.max_samples)
+    else:
+        recs = load_raw(a.data)
     if a.max_samples:
         recs = recs[:a.max_samples]
     print(f"{len(recs)} samples", flush=True)
@@ -108,13 +129,14 @@ def main():
         if n > len(tr_all):
             continue
         epochs = a.epochs or max(10, a.budget // n)
-        model, res = train_one(arr, tr_all[:n], te, epochs=epochs, verbose=True)
+        model, res = train_one(arr, tr_all[:n], te, epochs=epochs, verbose=True, device=a.device, amp=a.amp,
+                               shift_invariant=a.shift_invariant)
         res["epochs"] = epochs
         print(f"  n_train={n}: outline rms {res['outline_rms_mm']:.3f} mm (p95 of per-shape rms {res['outline_rms_p95_mm']:.3f}), "
               f"max {res['outline_max_mm']:.3f} mm; suture-mismatch MAE {res['suture_mismatch_mae_mm']:.2f} mm; "
               f"train {res['train_time_s']:.0f} s, infer {res['infer_ms']:.1f} ms", flush=True)
         results["runs"].append(res); best = model
-    torch.save(best.state_dict(), os.path.join(a.out, "outline_surrogate.pt"))
+    torch.save(best.cpu().state_dict(), os.path.join(a.out, "outline_surrogate.pt"))
     with open(os.path.join(a.out, "scaling.json"), "w") as f:
         json.dump(results, f, indent=1)
     np.savez(os.path.join(a.out, "test_split.npz"), test_idx=te)

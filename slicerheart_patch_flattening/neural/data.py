@@ -88,15 +88,9 @@ def featurize(rec: dict, rng: np.random.Generator, M: int = M_SURFACE) -> dict:
 
 
 def load_raw(dirs: list[str]) -> list[dict]:
-    recs = []
-    for d in dirs:
-        for f in sorted(glob.glob(os.path.join(d, "sample_*.npz"))):
-            z = np.load(f, allow_pickle=False)
-            meta = json.loads(str(z["meta"]))
-            rec = {k: z[k] for k in z.files if k != "meta"}
-            rec.update(meta)
-            recs.append(rec)
-    return recs
+    """Records from directories of sample_*.npz (same reader as dataset_io.load_shards)."""
+    from .dataset_io import load_shards
+    return load_shards(list(dirs))
 
 
 def build_arrays(recs: list[dict], seed: int = 0, M: int = M_SURFACE) -> dict:

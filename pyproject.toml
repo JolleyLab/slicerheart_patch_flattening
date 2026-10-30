@@ -11,6 +11,8 @@ dependencies = ["numpy", "scipy", "vtk", "matplotlib", "pandas", "shapely", "pyg
 
 [project.optional-dependencies]
 ref = ["libigl"]      # reference implementations used only in tests / cross-checks
+physics = ["warp-lang"]   # physics_ml: Warp membrane, forward inflation, adjoint inverse
+ml = ["torch"]            # developabilize, learned surrogate
 itk = ["itk"]         # optional ITK mesh I/O helpers
 dev = ["pytest"]
 

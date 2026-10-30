@@ -80,6 +80,9 @@ slicerheart_patch_flattening/
                      arap_hybrid, spring, membrane_stvk  (+ METHODS registry, flatten())
     methods_extra.py symmetric_dirichlet, membrane_suture, bff_lite, cetm, exp_map, lscm_perimeter
   developabilize.py  nearest developable baffle with the suture line fixed (PyTorch L-BFGS)
+  pipeline.py        flatten_recommended(): ARAP + metrics + darts (the default pipeline)
+  physics_ml/        separate track: Warp membrane/shell, pressurised forward model, adjoint
+                     inverse (template from loaded target), synthetic dataset (see its README)
   metrics.py         per-triangle stretch, edge/suture-line errors, width/length vs geodesic
   uncertainty.py     method spread (Procrustes) and mesh-refinement sensitivity
   darts.py           curvature concentration -> dart/gusset proposal -> mesh cut -> re-flatten

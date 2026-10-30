@@ -25,9 +25,9 @@ import numpy as np
 import scipy.sparse as sp
 from scipy.sparse.csgraph import dijkstra
 
-from .mesh import TriMesh
-from .algorithms.methods import flatten
-from .algorithms.common import FlatResult
+from ..mesh import TriMesh
+from .methods import flatten
+from .common import FlatResult
 
 
 # ---------------------------------------------------------------------------

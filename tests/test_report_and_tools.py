@@ -8,7 +8,7 @@ from slicerheart_patch_flattening.library import build_library
 from slicerheart_patch_flattening.evaluate import run_benchmark
 from slicerheart_patch_flattening.report import write_report
 from slicerheart_patch_flattening import export, flatten_recommended
-from slicerheart_patch_flattening.algorithms import flatten
+from slicerheart_patch_flattening.geometric import flatten
 from slicerheart_patch_flattening.library import generators as G
 
 

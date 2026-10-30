@@ -27,9 +27,9 @@ import numpy as np
 
 from ..library import generators as G
 from ..mesh import TriMesh
-from ..algorithms.methods import flatten
+from ..geometric.methods import flatten
 from ..metrics import distortion_metrics
-from ..darts import recommend_darts
+from ..geometric.darts import recommend_darts
 
 
 def random_shape(rng: np.random.Generator, h: float = 1.0) -> TriMesh:

@@ -18,7 +18,7 @@ from __future__ import annotations
 
 import numpy as np
 
-from .mesh import TriMesh
+from ..mesh import TriMesh
 
 
 def developabilize(mesh: TriMesh, alpha: float = 1e-3, max_iter: int = 300, fixed: np.ndarray | None = None,

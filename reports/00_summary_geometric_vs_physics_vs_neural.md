@@ -1,0 +1,41 @@
+# Summary: geometric vs physics-based vs neural flattening
+
+Three approaches to the same task, "turn a planned 3D baffle into a 2D template a surgeon can
+cut", compared on what they deliver today (Reports 1-4, all on the same 30-shape synthetic
+library plus the 2600-shape random set).
+
+| | geometric (`geometric/`) | physics-based (`physics_ml/`) | neural (`neural/`) |
+|---|---|---|---|
+| what it computes | minimum-distortion map of the surface to the plane (ARAP default; 16 alternatives) | equilibrium of a membrane/shell with material law and pressure; forward (inflate) and inverse (template from loaded target) by adjoint | regression from boundary curve + surface samples to the template outline, trained on solver labels |
+| inputs needed | surface mesh | surface mesh, suture line, material (E, nu, t, fibres), pressure | surface mesh (canonicalised); training set |
+| physics content | none (isometry as proxy for an inextensible sheet) | explicit: stress, strain, pressure, wrinkling via bending | whatever the labels contain |
+| accuracy on the benchmark | ARAP edge p95 5.6 %, max stretch 1.06 on curved baffles; isometric to < 0.1 % on developable ones; suture mismatch 4 mm (shape-limited), halved by darts | level 1 identical to the numpy membrane (same energy to 6 digits); level 2 target matched to 0.005-0.02 mm by the inverse; adjoint gradient within 0.5 % of finite differences | median 0.16 mm outline error vs ARAP, p95 0.5 mm, p99 1 mm, one 13 mm outlier; no gain from 250 to 2200 samples at fixed budget |
+| speed per patch (2 CPU cores) | 0.03 s (LSCM) to 0.2 s (membrane); 0.1 s ARAP | 0.4 s forward inflation; 30-300 s inverse (40-60 adjoint iterations) | 4 ms inference; minutes to train |
+| determinism / guarantees | deterministic; fold-free in practice (ARAP) or by construction (symmetric Dirichlet); CETM holds suture lengths exactly | deterministic given material; the inverse is ill-posed without a strain criterion (templates 0.3 mm apart give the same inflated shape) | none; worst case unbounded, canonicalisation ambiguities produce outliers |
+| what it cannot do | account for pressure, material, suture uptake; it answers "which flat shape is closest to isometric", not "which patch gives this baffle under load" | run interactively for the inverse (yet); replace measured material data | exceed its labels; give a bounded worst case |
+| maturity | benchmarked (17 methods x 30 shapes), tested, exposed to the Baffle Planner | validated prototype with tests; GPU path untested here; PatchWarp (Seda Aslan) is the higher-fidelity quad shell to merge with | feasibility study only |
+
+## Conclusions
+
+1. For the template as the Baffle Planner produces it today (unloaded, no material), **ARAP is the
+   answer**: lowest length error, fast, fold-free, with darting as the lever when the shape is not
+   developable and developabilization as a design-time option. LSCM (current module) carries 60 %
+   more length error; the suture-exact methods trade that for 15 % interior stretch or rim
+   buckling, which should be shown as options, not defaults.
+2. **Physics is needed as soon as pressure and material enter** (Kizilski et al. showed 15-25 %
+   template differences between low- and high-pressure designs). The Warp membrane does level 1
+   and level 2 and the adjoint inverse works, but the inverse must carry a design criterion (least
+   strain) because the inflated shape alone does not determine the outline. Its cost (minutes) is
+   the one place where a surrogate would pay.
+3. **A neural surrogate is not justified for level-1 flattening**: it cannot beat ARAP's accuracy
+   (ARAP is its label) and ARAP is already interactive. It is justified for amortising the
+   pressurised inverse, as a physics-informed model (energy as loss, solver polish) rather than a
+   label regressor, and eventually for learning from measured outcomes of the physical library,
+   where labels are better than any model.
+
+## Suggested path
+
+Geometric: ship ARAP + darts + metrics in the Baffle Planner (PR prepared); run on clinical baffles.
+Physics: GPU runs, PatchWarp quad shell as forward model, material data (CardioCel, ePTFE) and the
+physical validation library. Neural: only as amortisation of the physics inverse, physics-informed,
+on 10^4-10^5 generated samples, with ensembles for uncertainty.

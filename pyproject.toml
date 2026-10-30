@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "slicerheart_patch_flattening"
-version = "0.1.0"
+version = "0.3.0"
 description = "Patch/baffle flattening algorithms and evaluation harness for SlicerHeart virtual surgical planning"
 requires-python = ">=3.10"
 dependencies = ["numpy", "scipy", "vtk", "matplotlib", "pandas", "shapely", "pygeodesic", "tabulate"]
@@ -12,7 +12,7 @@ dependencies = ["numpy", "scipy", "vtk", "matplotlib", "pandas", "shapely", "pyg
 [project.optional-dependencies]
 ref = ["libigl"]      # reference implementations used only in tests / cross-checks
 physics = ["warp-lang"]   # physics_ml: Warp membrane, forward inflation, adjoint inverse
-ml = ["torch"]            # developabilize, learned surrogate
+ml = ["torch"]            # geometric/developabilize, neural surrogate
 itk = ["itk"]         # optional ITK mesh I/O helpers
 dev = ["pytest"]
 

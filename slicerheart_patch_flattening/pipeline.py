@@ -25,10 +25,10 @@ from dataclasses import dataclass, field
 import numpy as np
 
 from .mesh import TriMesh
-from .algorithms.methods import flatten
-from .algorithms.common import FlatResult
+from .geometric.methods import flatten
+from .geometric.common import FlatResult
 from .metrics import distortion_metrics
-from .darts import recommend_darts, flatten_with_darts
+from .geometric.darts import recommend_darts, flatten_with_darts
 
 DEFAULT_METHOD = "arap"
 DART_THRESHOLD_MM = 1.0

@@ -5,7 +5,7 @@ import pytest
 wp = pytest.importorskip("warp")
 
 from slicerheart_patch_flattening.library import generators as G
-from slicerheart_patch_flattening.algorithms import flatten
+from slicerheart_patch_flattening.geometric import flatten
 from slicerheart_patch_flattening.metrics import distortion_metrics
 from slicerheart_patch_flattening.physics_ml.warp_membrane import WarpMembrane, Material
 from slicerheart_patch_flattening.physics_ml.inverse import inflate, InverseTemplate

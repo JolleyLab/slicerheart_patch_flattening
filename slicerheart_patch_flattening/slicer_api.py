@@ -21,8 +21,8 @@ import vtk
 from vtk.util import numpy_support as vnp
 
 from .mesh import TriMesh
-from .algorithms.methods import flatten, METHODS
-from .algorithms.common import FlatResult
+from .geometric.methods import flatten, METHODS
+from .geometric.common import FlatResult
 from .metrics import distortion_metrics, per_vertex_stretch
 
 

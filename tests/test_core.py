@@ -4,9 +4,9 @@ import pytest
 
 from slicerheart_patch_flattening.library import generators as G
 from slicerheart_patch_flattening.mesh import TriMesh
-from slicerheart_patch_flattening.algorithms import flatten, METHODS
+from slicerheart_patch_flattening.geometric import flatten, METHODS
 from slicerheart_patch_flattening.metrics import distortion_metrics
-from slicerheart_patch_flattening.darts import recommend_darts, cut_mesh_along_path, flatten_with_darts
+from slicerheart_patch_flattening.geometric.darts import recommend_darts, cut_mesh_along_path, flatten_with_darts
 from slicerheart_patch_flattening.slicer_api import flatten_polydata
 
 H = 1.0
@@ -57,7 +57,7 @@ def test_fixed_boundary_methods_run(half_cylinder):
 
 def test_lscm_matches_igl(sphere_cap):
     igl = pytest.importorskip("igl")
-    from slicerheart_patch_flattening.algorithms.common import default_pins, pin_coordinates
+    from slicerheart_patch_flattening.geometric.common import default_pins, pin_coordinates
     from scipy.linalg import orthogonal_procrustes
     pins = default_pins(sphere_cap); puv = pin_coordinates(sphere_cap, pins)
     ref, _ = igl.lscm(sphere_cap.V, sphere_cap.F.astype(np.int64), pins.astype(np.int64), puv)
@@ -129,7 +129,7 @@ def test_cetm_matches_bff(sphere_cap):
 
 def test_developabilize_reduces_curvature(sphere_cap):
     pytest.importorskip("torch")
-    from slicerheart_patch_flattening.developabilize import developabilize
+    from slicerheart_patch_flattening.geometric.developabilize import developabilize
     r = developabilize(sphere_cap, alpha=1e-5, max_iter=200)
     assert r["total_abs_K_after_deg"] < r["total_abs_K_before_deg"]
     assert r["displacement_mm"][sphere_cap.is_boundary_vertex()].max() < 1e-9

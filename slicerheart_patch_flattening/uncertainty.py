@@ -23,7 +23,7 @@ import vtk
 from scipy.linalg import orthogonal_procrustes
 
 from .mesh import TriMesh
-from .algorithms.methods import flatten
+from .geometric.methods import flatten
 
 
 def rigid_align(src: np.ndarray, ref: np.ndarray, idx: np.ndarray | None = None):

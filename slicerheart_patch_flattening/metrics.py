@@ -31,7 +31,7 @@ from __future__ import annotations
 import numpy as np
 
 from .mesh import TriMesh
-from .algorithms.common import jacobians, rest_edge_matrices, singular_values_2x2, count_flips
+from .geometric.common import jacobians, rest_edge_matrices, singular_values_2x2, count_flips
 
 TOL_ABS_MM = 0.1     # Kizilski et al. 2025 tolerance on patch width/length change
 TOL_REL = 0.005      # 0.5 %

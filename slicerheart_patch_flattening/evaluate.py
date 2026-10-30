@@ -21,10 +21,10 @@ import numpy as np
 import pandas as pd
 
 from .mesh import TriMesh
-from .algorithms.methods import flatten, METHODS
+from .geometric.methods import flatten, METHODS
 from .metrics import distortion_metrics, KEY_METRICS
 from .uncertainty import method_spread, refinement_sensitivity
-from .darts import recommend_darts, flatten_with_darts
+from .geometric.darts import recommend_darts, flatten_with_darts
 from . import export, viz
 
 DEFAULT_METHODS = ["pca_projection", "tutte", "harmonic", "mean_value", "lscm", "lscm_edge", "lscm_perimeter",

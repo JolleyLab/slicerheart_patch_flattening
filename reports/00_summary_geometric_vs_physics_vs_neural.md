@@ -44,5 +44,5 @@ as a release. Whoever trains on it should follow `reports/05_inverse_surrogate_r
 reproduce the flattening surrogate on GPU with the shift-invariant loss (Phase 0), learn the
 forward physics on the physics shards (Phase 1), then the inverse by direct regression and by
 amortising the Warp adjoint (Phase 2), with ensembles for uncertainty (Phase 3) and measured labels
-from the physical library when available (Phase 4). `neural/TRAINING.md` has the baselines,
+from the physical library when available (Phase 4). Report 5 has the baselines,
 metrics and the first experiments.

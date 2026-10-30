@@ -9,4 +9,4 @@ Learned surrogates trained on the synthetic baffle dataset (`DATASET.md`, releas
 - `data/sample_100/`: 100-sample slice of the dataset for tests and format reference
 
 Feasibility study: `reports/04_neural_surrogate_feasibility.md`. Training path and roadmap to the
-inverse (pressurised) surrogate: `reports/05_roadmap_inverse_surrogate.md`.
+inverse (pressurised) surrogate: `reports/05_inverse_surrogate_roadmap.md`.

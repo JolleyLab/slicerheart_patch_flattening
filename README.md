@@ -94,9 +94,8 @@ python scripts/generate_dataset.py --out output/dataset --shard 0 --n 10000 --wo
 - [02 Geometric methods, wider exploration, darting, developabilization](reports/02_geometric_methods_wider_exploration.md)
 - [03 Physics track: Warp membrane, pressurised forward model, adjoint inverse](reports/03_physics_ml_warp_membrane_and_inverse.md)
 - [04 Neural surrogate feasibility](reports/04_neural_surrogate_feasibility.md)
-- [05 Training on dataset v1 and roadmap to the inverse surrogate](reports/05_roadmap_inverse_surrogate.md)
-- [05 Roadmap for the inverse surrogate](reports/05_inverse_surrogate_roadmap.md)
-- Dataset v1 record format and provenance: [neural/DATASET.md](slicerheart_patch_flattening/neural/DATASET.md); training notes: [neural/TRAINING.md](slicerheart_patch_flattening/neural/TRAINING.md)
+- [05 Training on dataset v1 and roadmap for the inverse surrogate](reports/05_inverse_surrogate_roadmap.md)
+- Dataset v1 record format and provenance: [neural/DATASET.md](slicerheart_patch_flattening/neural/DATASET.md)
 
 `results/` holds the CSVs and `docs/figures/` the figures of the committed benchmark run.
 

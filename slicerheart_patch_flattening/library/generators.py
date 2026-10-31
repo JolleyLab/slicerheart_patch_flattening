@@ -42,8 +42,10 @@ def _delaunay_2d(points2d: np.ndarray) -> np.ndarray:
     d.SetTolerance(1e-9)
     d.Update()
     out = d.GetOutput()
-    polys = vnp.vtk_to_numpy(out.GetPolys().GetData()).reshape(-1, 4)[:, 1:]
-    return polys.astype(np.int64)
+    conn = vnp.vtk_to_numpy(out.GetPolys().GetConnectivityArray())
+    offs = vnp.vtk_to_numpy(out.GetPolys().GetOffsetsArray())
+    assert np.all(np.diff(offs) == 3), "vtkDelaunay2D produced non-triangular cells"
+    return conn.reshape(-1, 3).astype(np.int64)
 
 
 def triangulate_polygon(boundary: np.ndarray, h: float, jitter: float = 0.15,

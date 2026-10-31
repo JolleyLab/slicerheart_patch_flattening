@@ -6,15 +6,30 @@ build-backend = "setuptools.build_meta"
 name = "slicerheart_patch_flattening"
 version = "0.3.0"
 description = "Patch/baffle flattening algorithms and evaluation harness for SlicerHeart virtual surgical planning"
+readme = "README.md"
 requires-python = ">=3.10"
 dependencies = ["numpy", "scipy", "vtk", "matplotlib", "pandas", "shapely", "pygeodesic", "tabulate"]
 
 [project.optional-dependencies]
-ref = ["libigl"]      # reference implementations used only in tests / cross-checks
-physics = ["warp-lang"]   # physics_ml: Warp membrane, forward inflation, adjoint inverse
-ml = ["torch"]            # geometric/developabilize, neural surrogate
-itk = ["itk"]         # optional ITK mesh I/O helpers
+ref = ["libigl; python_version < '3.13'"]   # reference implementations used only in tests / cross-checks (no wheels for 3.13 yet)
+physics = ["warp-lang"]                     # physics_ml: Warp membrane, forward inflation, adjoint inverse
+ml = ["torch"]                              # geometric/developabilize, neural surrogate
+itk = ["itk"]                               # optional ITK mesh I/O helpers
+test = ["pytest>=7", "warp-lang", "libigl; python_version < '3.13'"]
 dev = ["pytest"]
+
+[project.urls]
+Homepage = "https://github.com/JolleyLab/slicerheart_patch_flattening"
+Issues = "https://github.com/JolleyLab/slicerheart_patch_flattening/issues"
 
 [tool.setuptools.packages.find]
 include = ["slicerheart_patch_flattening*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+markers = [
+    "physics: test uses the Warp membrane track (skipped when warp-lang is not installed)",
+    "dataset: test generates or loads the synthetic surrogate dataset",
+    "benchmark: test runs the benchmark harness and report on a few shapes",
+]

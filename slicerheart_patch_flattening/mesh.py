@@ -285,4 +285,5 @@ class TriMesh:
         d.SetEndVertex(int(dst))
         d.Update()
         ids = d.GetIdList()
-        return np.array([ids.GetId(i) for i in range(ids.GetNumberOfIds())], dtype=np.int64)
+        path = np.array([ids.GetId(i) for i in range(ids.GetNumberOfIds())], dtype=np.int64)
+        return path[::-1] if len(path) and path[0] == dst else path     # VTK lists the path from the end vertex

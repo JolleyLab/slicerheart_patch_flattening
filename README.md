@@ -104,10 +104,19 @@ python scripts/generate_dataset.py --out output/dataset --shard 0 --n 10000 --wo
 ## Testing
 
 ```bash
-python -m pytest tests
+pip install -e ".[test]"
+python -m pytest
 ```
 
-GitHub Actions runs the tests on every pull request and push to `main` (Python 3.10 and 3.12)
+About 200 tests run in half a minute on synthetic shapes (analytic surfaces of known curvature
+and the synthetic library): isometry on developable surfaces, invariance to the world coordinate
+system and mesh ordering, metrics on flattenings with known distortion, darts, the Slicer entry
+point, template export, and the Warp membrane track against closed-form energies and Hencky's
+pressurised membrane. Distortion numbers are also compared with `tests/metrics/baseline.json`
+so a method cannot silently get worse; see [tests/README.md](tests/README.md).
+
+GitHub Actions runs the tests on every pull request and push to `main` (Python 3.10, 3.12 and
+3.13 on Ubuntu, 3.12 on Windows and macOS, and the VTK version of the current 3D Slicer release)
 and attaches a quick benchmark report as an artifact; the `benchmark` workflow runs the full
 benchmark on demand and on every release and attaches `benchmark_report_<tag>.pdf` to the release.
 

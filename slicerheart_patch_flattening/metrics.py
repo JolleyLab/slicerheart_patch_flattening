@@ -62,7 +62,13 @@ def feret_pairs(uv: np.ndarray, loop: np.ndarray):
     axis = (P[j] - P[i]) / d[i, j]
     perp = np.array([-axis[1], axis[0]])
     proj = P @ perp
-    k, l = int(proj.argmin()), int(proj.argmax())
+    # Symmetric outlines have several vertices at the same extreme projection; take the farthest
+    # pair among the (numerically) tied extremes so that the width does not depend on rounding
+    tol = 1e-9 * d[i, j]
+    lo = np.flatnonzero(proj <= proj.min() + tol)
+    hi = np.flatnonzero(proj >= proj.max() - tol)
+    a, b = np.unravel_index(d[np.ix_(lo, hi)].argmax(), (len(lo), len(hi)))
+    k, l = int(lo[a]), int(hi[b])
     return (int(loop[i]), int(loop[j])), (int(loop[k]), int(loop[l]))
 
 

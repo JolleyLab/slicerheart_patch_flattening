@@ -124,4 +124,4 @@ Levy et al. 2002 (LSCM), Liu et al. 2008 (ARAP), Springborn et al. 2008 (CETM), 
 
 ## License
 
-MIT. Copyright (c) 2026 JolleyLab, Children's Hospital of Philadelphia.
+MIT. Copyright (c) 2026 JolleyLab
